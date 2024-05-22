@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CredUtils
 
 // MARK: Public APIs
 public extension ConstrainableAnchors {
