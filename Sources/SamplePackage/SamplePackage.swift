@@ -5,8 +5,10 @@ import UIKit
 
 public struct SamplePackageManager {
     
-    public func showDummyViewController(on parentVC: UIViewController) {
+    public init() { }
+    
+    public static func showDummyViewController(on parentVC: UIViewController) {
         let presentedVC = DummyViewControllerViewController()
-        parentVC.present(parentVC, animated: true)
+        parentVC.present(presentedVC, animated: true)
     }
 }
