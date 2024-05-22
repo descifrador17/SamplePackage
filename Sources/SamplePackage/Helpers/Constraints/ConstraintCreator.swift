@@ -8,15 +8,15 @@
 
 import UIKit
 
-public final class ConstraintCreator: NSObject {
+final class ConstraintCreator: NSObject {
     let constraints: [Constraint]
 
-    public init(constraints: [Constraint]) {
+    init(constraints: [Constraint]) {
         self.constraints = constraints
     }
 
-    /// Public enum containing all possible cases for "Getting" the constraint
-    public enum ConstraintType {
+    ///  enum containing all possible cases for "Getting" the constraint
+    enum ConstraintType {
 
         case top
         case bottom
@@ -29,8 +29,8 @@ public final class ConstraintCreator: NSObject {
         case aspectRatio
     }
 
-    /// Public enum containing all possible cases for constraints
-    public enum Constraint {
+    ///  enum containing all possible cases for constraints
+    enum Constraint {
 
         case equate(viewAttribute: NSLayoutConstraint.Attribute, toView: ConstrainableAnchors, toViewAttribute: NSLayoutConstraint.Attribute, relation: NSLayoutConstraint.Relation, constant: CGFloat, multiplier: CGFloat)
 
@@ -132,7 +132,7 @@ public final class ConstraintCreator: NSObject {
     ///   - constant: the height to be fixed
     ///   - multiplier: multiplier for the constraint
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func equateAttribute(_ attribute: NSLayoutConstraint.Attribute, toView view: ConstrainableAnchors, toAttribute: NSLayoutConstraint.Attribute, withRelation relation: NSLayoutConstraint.Relation, _ constant: CGFloat = 0, multiplier: CGFloat = 1) -> ConstraintCreator {
+     static func equateAttribute(_ attribute: NSLayoutConstraint.Attribute, toView view: ConstrainableAnchors, toAttribute: NSLayoutConstraint.Attribute, withRelation relation: NSLayoutConstraint.Relation, _ constant: CGFloat = 0, multiplier: CGFloat = 1) -> ConstraintCreator {
         ConstraintCreator(constraints: [Constraint.equate(viewAttribute: attribute, toView: view, toViewAttribute: toAttribute, relation: relation, constant: constant, multiplier: multiplier)])
     }
 
@@ -142,7 +142,7 @@ public final class ConstraintCreator: NSObject {
     ///   - relation: the Layout constraint relation
     ///   - multiplier: multiplier for the constraint
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func height(_ constant: CGFloat, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
+     static func height(_ constant: CGFloat, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
         ConstraintCreator(constraints: [Constraint.height(view: nil, relation: relation, constant: constant, multiplier: multiplier)])
     }
 
@@ -153,7 +153,7 @@ public final class ConstraintCreator: NSObject {
     ///   - relation: the layout constraint relation
     ///   - multiplier: multiplier for the constraint
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func sameHeight(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
+     static func sameHeight(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
         ConstraintCreator(constraints: [Constraint.height(view: view, relation: relation, constant: constant, multiplier: multiplier)])
     }
 
@@ -163,7 +163,7 @@ public final class ConstraintCreator: NSObject {
     ///   - relation: the Layout constraint relation
     ///   - multiplier: multiplier for the constraint
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func width(_ constant: CGFloat, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
+     static func width(_ constant: CGFloat, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
         ConstraintCreator(constraints: [Constraint.width(view: nil, relation: relation, constant: constant, multiplier: multiplier)])
     }
 
@@ -174,7 +174,7 @@ public final class ConstraintCreator: NSObject {
     ///   - relation: the layout constraint relation
     ///   - multiplier: multiplier for the constraint
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func sameWidth(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
+     static func sameWidth(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
         ConstraintCreator(constraints: [Constraint.width(view: view, relation: relation, constant: constant, multiplier: multiplier)])
     }
 
@@ -185,7 +185,7 @@ public final class ConstraintCreator: NSObject {
     ///   - relation: the Layout constraint relation
     ///   - multiplier: multiplier for the constraint
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func top(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
+     static func top(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
         ConstraintCreator(constraints: [Constraint.top(view: view, constant: constant, relation: relation, multiplier: multiplier)])
     }
 
@@ -196,7 +196,7 @@ public final class ConstraintCreator: NSObject {
     ///   - relation: the Layout constraint relation
     ///   - multiplier: multiplier for the constraint
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func bottom(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
+     static func bottom(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
         ConstraintCreator(constraints: [Constraint.bottom(view: view, constant: constant, relation: relation, multiplier: multiplier)])
     }
 
@@ -207,7 +207,7 @@ public final class ConstraintCreator: NSObject {
     ///   - relation: the Layout constraint relation
     ///   - multiplier: multiplier for the constraint
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func leading(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
+     static func leading(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
         ConstraintCreator(constraints: [Constraint.leading(view: view, constant: constant, relation: relation, multiplier: multiplier)])
     }
 
@@ -218,7 +218,7 @@ public final class ConstraintCreator: NSObject {
     ///   - relation: the Layout constraint relation
     ///   - multiplier: multiplier for the constraint
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func trailing(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
+     static func trailing(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
         ConstraintCreator(constraints: [Constraint.trailing(view: view, constant: constant, relation: relation, multiplier: multiplier)])
     }
 
@@ -229,7 +229,7 @@ public final class ConstraintCreator: NSObject {
     ///   - relation: the Layout constraint relation
     ///   - multiplier: multiplier for the constraint
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func before(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
+     static func before(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
         ConstraintCreator(constraints: [Constraint.before(view: view, constant: constant, relation: relation, multiplier: multiplier)])
     }
 
@@ -240,7 +240,7 @@ public final class ConstraintCreator: NSObject {
     ///   - relation: the Layout constraint relation
     ///   - multiplier: multiplier for the constraint
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func after(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
+     static func after(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
         ConstraintCreator(constraints: [Constraint.after(view: view, constant: constant, relation: relation, multiplier: multiplier)])
     }
 
@@ -251,7 +251,7 @@ public final class ConstraintCreator: NSObject {
     ///   - relation: the Layout constraint relation
     ///   - multiplier: multiplier for the constraint
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func above(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
+     static func above(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
         ConstraintCreator(constraints: [Constraint.above(view: view, constant: constant, relation: relation, multiplier: multiplier)])
     }
 
@@ -262,7 +262,7 @@ public final class ConstraintCreator: NSObject {
     ///   - relation: the Layout constraint relation
     ///   - multiplier: multiplier for the constraint
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func below(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
+     static func below(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
         ConstraintCreator(constraints: [Constraint.below(view: view, constant: constant, relation: relation, multiplier: multiplier)])
     }
 
@@ -273,7 +273,7 @@ public final class ConstraintCreator: NSObject {
     ///   - relation: the Layout constraint relation
     ///   - multiplier: multiplier for the constraint
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func centerX(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
+     static func centerX(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
         ConstraintCreator(constraints: [Constraint.centerX(view: view, constant: constant, relation: relation, multiplier: multiplier)])
     }
 
@@ -284,14 +284,14 @@ public final class ConstraintCreator: NSObject {
     ///   - relation: the Layout constraint relation
     ///   - multiplier: multiplier for the constraint
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func centerY(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
+     static func centerY(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1) -> ConstraintCreator {
         ConstraintCreator(constraints: [Constraint.centerY(view: view, constant: constant, relation: relation, multiplier: multiplier)])
     }
 
     /// Use this method to align the center anchors of two views
     /// - Parameter view: the view to align center anchors with
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func centerView(_ view: ConstrainableAnchors) -> ConstraintCreator {
+     static func centerView(_ view: ConstrainableAnchors) -> ConstraintCreator {
         ConstraintCreator(constraints: ConstraintCreator.centerX(view).constraints + ConstraintCreator.centerY(view).constraints)
     }
 
@@ -300,14 +300,14 @@ public final class ConstraintCreator: NSObject {
     ///   - width: the constant to be applied while fixing width
     ///   - height: the constant to be applied while fixing height
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func size(_ width: CGFloat, _ height: CGFloat) -> ConstraintCreator {
+     static func size(_ width: CGFloat, _ height: CGFloat) -> ConstraintCreator {
         ConstraintCreator(constraints: ConstraintCreator.width(width).constraints +  ConstraintCreator.height(height).constraints)
     }
 
     /// Use this method to align the height and width anchors of a view
     /// - Parameter size: the constant to be applied while fixing size
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func size(_ size: CGSize) -> ConstraintCreator {
+     static func size(_ size: CGSize) -> ConstraintCreator {
         ConstraintCreator(constraints: ConstraintCreator.width(size.width).constraints +  ConstraintCreator.height(size.height).constraints)
     }
 
@@ -320,7 +320,7 @@ public final class ConstraintCreator: NSObject {
     ///   - constant: the constant to be applied while aligning views
     ///   - relation: the Layout constraint relation
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func sameLeadingTrailing(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal) -> ConstraintCreator {
+     static func sameLeadingTrailing(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal) -> ConstraintCreator {
         ConstraintCreator(constraints: ConstraintCreator.leading(view, constant, relation).constraints +  ConstraintCreator.trailing(view, constant, relation).constraints)
     }
 
@@ -330,7 +330,7 @@ public final class ConstraintCreator: NSObject {
     ///   - constant: the constant to be applied while aligning views
     ///   - relation: the Layout constraint relation
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func sameTopBottom(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal) -> ConstraintCreator {
+     static func sameTopBottom(_ view: ConstrainableAnchors, _ constant: CGFloat = 0, _ relation: NSLayoutConstraint.Relation = .equal) -> ConstraintCreator {
         ConstraintCreator(constraints: ConstraintCreator.top(view, constant, relation).constraints +  ConstraintCreator.bottom(view, constant, relation).constraints)
     }
 
@@ -343,7 +343,7 @@ public final class ConstraintCreator: NSObject {
     ///   - right: the right constant to be applied while aligning views
     /// - Returns: ConstraintCreator Object with suitable constraints
     @available(*, deprecated, message: "use `fill(_:top:leading:bottom:trailing)` instead")
-    public static func fillSuperView(_ view: ConstrainableAnchors, _ top: CGFloat?, left: CGFloat?, bottom: CGFloat?, right: CGFloat?) -> ConstraintCreator {
+     static func fillSuperView(_ view: ConstrainableAnchors, _ top: CGFloat?, left: CGFloat?, bottom: CGFloat?, right: CGFloat?) -> ConstraintCreator {
         var constraints: [Constraint] = []
 
         if let leftInset = left {
@@ -371,7 +371,7 @@ public final class ConstraintCreator: NSObject {
     ///   - constant: the constant to be applied while aligning views
     /// - Returns: ConstraintCreator Object with suitable constraints
     @available(*, deprecated, message: "use `fill(_:_:)` instead")
-    public static func fillSuperView(_ view: ConstrainableAnchors, _ constant: CGFloat = 0) -> ConstraintCreator {
+     static func fillSuperView(_ view: ConstrainableAnchors, _ constant: CGFloat = 0) -> ConstraintCreator {
         ConstraintCreator(constraints: ConstraintCreator.sameLeadingTrailing(view, constant).constraints +  ConstraintCreator.sameTopBottom(view, constant).constraints)
     }
 
@@ -380,7 +380,7 @@ public final class ConstraintCreator: NSObject {
     ///   - view: the view to align all 4 anchors with
     ///   - constant: the constant to be applied while aligning views
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func fill(_ view: ConstrainableAnchors, _ constant: CGFloat = 0) -> ConstraintCreator {
+     static func fill(_ view: ConstrainableAnchors, _ constant: CGFloat = 0) -> ConstraintCreator {
         ConstraintCreator(constraints: ConstraintCreator.sameLeadingTrailing(view, constant).constraints +  ConstraintCreator.sameTopBottom(view, constant).constraints)
     }
 
@@ -392,7 +392,7 @@ public final class ConstraintCreator: NSObject {
     ///   - bottom: the bottom constant to be applied while aligning views
     ///   - right: the right constant to be applied while aligning views
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func fill(_ view: ConstrainableAnchors, top: CGFloat?, leading: CGFloat?, bottom: CGFloat?, trailing: CGFloat?) -> ConstraintCreator {
+     static func fill(_ view: ConstrainableAnchors, top: CGFloat?, leading: CGFloat?, bottom: CGFloat?, trailing: CGFloat?) -> ConstraintCreator {
         var constraints: [Constraint] = []
 
         if let leadingInset = leading {
@@ -419,14 +419,14 @@ public final class ConstraintCreator: NSObject {
     ///   - view: the view to align all 4 anchors with
     ///   - insets: inset to be applied on all four directions
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func fill(_ view: ConstrainableAnchors, insets: UIEdgeInsets) -> ConstraintCreator {
+     static func fill(_ view: ConstrainableAnchors, insets: UIEdgeInsets) -> ConstraintCreator {
         fill(view, top: insets.top, leading: insets.left, bottom: insets.bottom, trailing: insets.right)
     }
 
     /// Use this create a ratio between width and height of the view
     /// - Parameter value: the ratio provided, will be taken as positive. it should be a ratio of `width/height`
     /// - Returns: ConstraintCreator Object with suitable constraints
-    public static func aspectRatio(_ value: CGFloat) -> ConstraintCreator {
+     static func aspectRatio(_ value: CGFloat) -> ConstraintCreator {
         ConstraintCreator(constraints: [Constraint.aspectRatio(ratio: abs(value))])
     }
 }

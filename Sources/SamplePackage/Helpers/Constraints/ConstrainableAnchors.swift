@@ -9,7 +9,7 @@
 import UIKit
 
 /// A protocol to handle adding constraints.
-public protocol ConstrainableAnchors: AnyObject {
+protocol ConstrainableAnchors: AnyObject {
     var leadingAnchor: NSLayoutXAxisAnchor { get }
     var trailingAnchor: NSLayoutXAxisAnchor { get }
     var leftAnchor: NSLayoutXAxisAnchor { get }
@@ -27,10 +27,10 @@ public protocol ConstrainableAnchors: AnyObject {
 }
 
 extension UIView: ConstrainableAnchors {
-    public func prepareForActivatingConstraints() {
+    func prepareForActivatingConstraints() {
         translatesAutoresizingMaskIntoConstraints = false
     }
 }
 extension UILayoutGuide: ConstrainableAnchors {
-    public func prepareForActivatingConstraints() {}
+    func prepareForActivatingConstraints() {}
 }

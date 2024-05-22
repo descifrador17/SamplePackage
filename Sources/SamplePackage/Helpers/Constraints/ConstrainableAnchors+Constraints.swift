@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK: Public APIs
-public extension ConstrainableAnchors {
+extension ConstrainableAnchors {
     func makeConstraint(@ConstraintBuilder constraints: (ConstraintCreator.Type) -> [ConstraintCreator]) {
         constraints(ConstraintCreator.self)
             .flatMap(\.constraints)
