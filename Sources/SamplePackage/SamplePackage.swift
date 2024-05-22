@@ -3,11 +3,11 @@
 
 import UIKit
 
- struct SamplePackageManager {
+public struct SamplePackageManager {
     
      init() { }
     
-     static func showDummyViewController(on parentVC: UIViewController) {
+     public static func showDummyViewController(on parentVC: UIViewController) {
         let presentedVC = DummyViewControllerViewController()
         parentVC.present(presentedVC, animated: true)
     }
