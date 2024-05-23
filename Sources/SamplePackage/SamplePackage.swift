@@ -8,7 +8,7 @@ public struct SamplePackageManager {
      init() { }
     
      public static func showDummyViewController(on parentVC: UIViewController) {
-        let presentedVC = DummyViewControllerViewController()
+        let presentedVC = DummyViewController()
          parentVC.navigationController?.pushViewController(presentedVC, animated: true)
     }
 }
