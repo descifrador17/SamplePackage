@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 
-final class DummyViewControllerViewController: UIViewController {
+public protocol DummyViewControllerProtocol { }
+
+final class DummyViewController: UIViewController, DummyViewControllerProtocol {
     private let containerStack: UIStackView = {
         let stack = UIStackView()
         stack.backgroundColor = .clear
